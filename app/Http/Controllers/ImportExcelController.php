@@ -66,27 +66,13 @@ class ImportExcelController extends Controller
             return back()->with('success', 'Excel Data Imported successfully.');
         }
     }
+
+
+    public function download_file_sample(){
+        $file= public_path(). "/sample_import_file.xlsx";
+        $headers = array(
+            'Content-Type: application/xlsx',
+        );
+        return response()->download($file, 'sample_import_file.xlsx', $headers);
+    }
 }
-
-
-// $group = Group::firstOrNew(['group_name' => $row['Group_Name']]);
-// $group->title = $row['Title'];
-// $group->content = $row['Content'];
-// $group->save();
-
-// $product = new Product();
-// $find_group = Group::where('group_name', $row['Product_Group_Name'])->first();
-// if($find_group)
-// {
-//     $product->group_ID = $find_group->id;
-// }
-// else
-// {
-//     $new_group = new Group();
-//     $new_group->group_name = $row['Product_Group_Name'];
-//     $new_group->save();
-//     $product->group_ID = $new_group->id;
-// }
-// $product->name = $row['name'];
-// $product->description = $row['description'];
-// $product->save();

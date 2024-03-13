@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Import/Export Excel File in Laravel</title>
+    <title>Import/Export Excel File</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -15,7 +15,7 @@
 
 <body>
     <div class="container">
-        <h3 align="center">Import Excel File in Laravel</h3>
+        <h3 align="center">Import/Export Excel File</h3>
         <br />
         @if (count($errors) > 0)
             <div class="alert alert-danger">
@@ -49,7 +49,8 @@
                     </tr>
                     <tr>
                         <td width="40%" align="right"></td>
-                        <td width="30"><span class="text-muted">.xls, .xslx</span></td>
+                        <td width="30"><span class="text-muted"> <a href="{{ url('download_sample_file') }}"
+                                    class="btn btn-link">Download Sample File </a> .xls, .xslx</span></td>
                         <td width="30%" align="left"></td>
                     </tr>
                 </table>
@@ -82,12 +83,12 @@
                                     <td rowspan="{{ count($row->products) + 1 }}">{{ $row->title }}</td>
                                     <td rowspan="{{ count($row->products) + 1 }}">{{ $row->content }}</td>
                                     @foreach ($row->products as $product)
-                                        <tr>
-                                            <td>{{ $product->group_ID }}</td>
-                                            <td>{{ $product->name }}</td>
-                                            <td>{{ $product->description }}</td>
-                                        </tr>
-                                    @endforeach
+                                <tr>
+                                    <td>{{ $product->group_ID }}</td>
+                                    <td>{{ $product->name }}</td>
+                                    <td>{{ $product->description }}</td>
+                                </tr>
+                            @endforeach
                         @endforeach
                         @endif
                     </table>

@@ -15,6 +15,7 @@ use App\Http\Controllers\ExportExcelController;
 |
 */
 
-Route::get('/import_excel', [ImportExcelController::class, 'index']);
+Route::get('/product-data', [ImportExcelController::class, 'index']);
 Route::post('/import_excel/import', [ImportExcelController::class, 'import']);
+Route::get('/download_sample_file', [ImportExcelController::class, 'download_file_sample']);
 Route::get('/export_excel', [ExportExcelController::class, 'export']);
